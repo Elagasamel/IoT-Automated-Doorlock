@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Logs
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Sort by</ion-label>
+      <ion-select [(ngModel)]="logSelect" (ionChange)="getLogs()" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="today">Today</ion-select-option>
+        <ion-select-option value="week">Current Week</ion-select-option>
+        <ion-select-option value="month">Current Month</ion-select-option>
+        <ion-select-option value="succeeded">Succeeded</ion-select-option>
+        <ion-select-option value="failed">Failed</ion-select-option>
+        <ion-select-option value="all">All Logs</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let log of logs;" [attr.color]="getColor(log.attemptType)">
+      <ion-label>{{log.unixTime * 1000 | date:'yyyy/MM/dd HH:mm:ss Z':'+0100'}} - {{attemptType[log.attemptType]}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <p *ngIf="logs.length <= 0" class="ion-text-center">Oops.. There is no logs for this section.</p>
+</ion-content>

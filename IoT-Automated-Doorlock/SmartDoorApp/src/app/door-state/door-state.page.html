@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Door State
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card" color="success">
+    <img *ngIf="doorState == 'OPEN'" class="ion-padding-top" src="/assets/unlocked.svg" alt="" />
+    <img *ngIf="doorState == 'CLOSED'" class="ion-padding-top" src="/assets/locked.svg" alt="" />
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{doorState}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Latest log</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Last log was recorded on {{log.unixTime * 1000 | date:'yyyy/MM/dd HH:mm:ss Z'}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

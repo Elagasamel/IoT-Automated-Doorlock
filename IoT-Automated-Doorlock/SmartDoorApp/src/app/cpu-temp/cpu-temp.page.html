@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Cpu Temperature
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card" [attr.color]="getColor(cpu)">
+    <img class="ion-padding-top cpu-icon" src="/assets/processor.svg" alt="" />
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{cpu}} °C</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
+
